@@ -7,7 +7,7 @@ from time import time
 def home():
 	form = LoginForm()
 	if form.validate_on_submit():
-		return redirect(url_for('login'))
+		return redirect(url_for('session'))
 	return render_template('login.html',title='Login',form=form)
 @app.route("/about")
 def about():
@@ -32,8 +32,7 @@ def login():
 			return redirect(url_for('home'))
 		else:
 			return redirect(url_for('back'))
-	else:
-			return redirect(url_for('session'))
+	return redirect(url_for('home'))
 
 
         
